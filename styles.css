@@ -5,11 +5,46 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
+    background-color: #2e2e2e; /* Dark grey background */
+    background-image: url('smokey-texture.png'); /* Smokey texture background image */
+    background-size: cover;
 }
 
 #app {
     text-align: center;
     width: 300px;
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+    color: #fff; /* White text color */
+}
+
+#new-task {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #444; /* Dark grey input background */
+    color: #fff; /* White input text */
+}
+
+#add-task {
+    padding: 10px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    background: #556; /* Darker grey button background */
+    color: #fff; /* White button text */
+    cursor: pointer;
+}
+
+#add-task:hover {
+    background: #667; /* Slightly lighter on hover */
 }
 
 #task-list {
@@ -18,12 +53,14 @@ body {
 }
 
 #task-list li {
-    background: #f4f4f4;
+    background: #444; /* Dark grey list item background */
     padding: 10px;
     margin: 5px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-radius: 5px;
+    color: #fff; /* White list item text */
 }
 
 #task-list li.completed {
@@ -34,4 +71,17 @@ body {
 .task-buttons {
     display: flex;
     gap: 5px;
+}
+
+.task-buttons button {
+    background: #555; /* Dark grey button background */
+    border: none;
+    border-radius: 3px;
+    color: #fff; /* White button text */
+    padding: 5px;
+    cursor: pointer;
+}
+
+.task-buttons button:hover {
+    background: #666; /* Slightly lighter on hover */
 }
