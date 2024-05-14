@@ -43,3 +43,53 @@ function addTask(taskText) {
     newTask.appendChild(buttonsDiv);
     taskList.appendChild(newTask);
 }
+
+document.getElementById('add-note').addEventListener('click', function() {
+    const noteInput = document.getElementById('new-note');
+    const noteText = noteInput.value.trim();
+
+    if (noteText !== '') {
+        addNote(noteText);
+        noteInput.value = '';
+    }
+});
+
+function addNote(noteText) {
+    const notesContainer = document.getElementById('notes-container');
+    const newNote = document.createElement('div');
+    newNote.className = 'note';
+    newNote.textContent = noteText;
+
+    // Make the note draggable
+    newNote.setAttribute('draggable', true);
+    newNote.addEventListener('dragstart', dragStart);
+    newNote.addEventListener('dragend', dragEnd);
+
+    notesContainer.appendChild(newNote);
+}
+
+let dragItem = null;
+
+function dragStart(event) {
+    dragItem = this;
+    setTimeout(() => this.style.display = 'none', 0);
+}
+
+function dragEnd(event) {
+    setTimeout(() => {
+        dragItem.style.display = 'block';
+        dragItem = null;
+    }, 0);
+}
+
+document.addEventListener('dragover', function(event) {
+    event.preventDefault();
+    const notesContainer = document.getElementById('notes-container');
+    const x = event.clientX - notesContainer.offsetLeft;
+    const y = event.clientY - notesContainer.offsetTop;
+
+    if (dragItem) {
+        dragItem.style.left = `${x}px`;
+        dragItem.style.top = `${y}px`;
+    }
+});
