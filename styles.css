@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     height: 100vh;
     margin: 0;
@@ -10,20 +10,21 @@ body {
     background-size: cover;
 }
 
-#app {
-    text-align: center;
-    width: 300px;
+#app, #notes-app {
     background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+    width: 300px;
+    text-align: center;
 }
 
-h1 {
+h1, h2 {
     color: #fff; /* White text color */
 }
 
-#new-task {
+#new-task, #new-note {
     width: calc(100% - 22px);
     padding: 10px;
     margin-bottom: 10px;
@@ -33,7 +34,7 @@ h1 {
     color: #fff; /* White input text */
 }
 
-#add-task {
+#add-task, #add-note {
     padding: 10px;
     width: 100%;
     border: none;
@@ -43,7 +44,7 @@ h1 {
     cursor: pointer;
 }
 
-#add-task:hover {
+#add-task:hover, #add-note:hover {
     background: #667; /* Slightly lighter on hover */
 }
 
@@ -84,4 +85,20 @@ h1 {
 
 .task-buttons button:hover {
     background: #666; /* Slightly lighter on hover */
+}
+
+#notes-container {
+    margin-top: 20px;
+    position: relative;
+}
+
+.note {
+    background: #444; /* Dark grey note background */
+    color: #fff; /* White note text */
+    padding: 10px;
+    border-radius: 5px;
+    position: absolute;
+    cursor: move;
+    width: 200px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
