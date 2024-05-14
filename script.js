@@ -58,7 +58,18 @@ function addNote(noteText) {
     const notesContainer = document.getElementById('notes-container');
     const newNote = document.createElement('div');
     newNote.className = 'note';
-    newNote.textContent = noteText;
+
+    const noteContent = document.createElement('span');
+    noteContent.textContent = noteText;
+
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = '✖';
+    deleteButton.addEventListener('click', function() {
+        notesContainer.removeChild(newNote);
+    });
+
+    newNote.appendChild(noteContent);
+    newNote.appendChild(deleteButton);
 
     // Make the note draggable
     newNote.setAttribute('draggable', true);
